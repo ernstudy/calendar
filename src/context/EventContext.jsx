@@ -37,9 +37,23 @@ const EventProvider = ({ children }) => {
     console.log("event clicked");
   };
 
+  // close and open modal
+  const [isEventModalOpened, setIsEventModalOpened] = useState(false);
+  const eventModalToggle = () => {
+    setIsEventModalOpened(!isEventModalOpened);
+    document.body.style.overflow = isOpenModal && "hidden";
+  };
+
   return (
     <EventContext.Provider
-      value={{ eventClick, isEventClicked, setEventDetails, eventDetails }}
+      value={{
+        eventClick,
+        isEventClicked,
+        setEventDetails,
+        eventDetails,
+        eventModalToggle,
+        isEventModalOpened,
+      }}
     >
       {children}
     </EventContext.Provider>

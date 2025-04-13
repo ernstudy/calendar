@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import HomeCalendarStyle from "./HomeCalendar.module.css";
 import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 import clsx from "clsx";
+import { useEventContext } from "../../../context/EventContext";
 
 export default function HomeCalendar() {
+  const { eventModalToggle } = useEventContext();
   const [nav, setNav] = useState(0);
   // days of the week
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -93,7 +95,15 @@ export default function HomeCalendar() {
 
       <div className={HomeCalendarStyle.monthdays}>
         {dayMonthList.map((day, index) => (
-          <div key={index} className={HomeCalendarStyle.dayBox}>
+          <div
+            key={index}
+            className={HomeCalendarStyle.dayBox}
+            onClick={() => {
+              if (day.type == "day") {
+                eventModalToggle();
+              }
+            }}
+          >
             <span
               className={clsx(
                 currentDay == day.day &&
