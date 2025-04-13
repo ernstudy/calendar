@@ -25,5 +25,4 @@ dist-ssr
 src/assets/
 src/components/Navigation
 src/components/HomePage/RecentEvents/
-src/components/HomePage/HomePage.module.css
 src/utils/EventMenu
