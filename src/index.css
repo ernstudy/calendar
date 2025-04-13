@@ -84,8 +84,3 @@ body {
   font-family: "Rightous", sans-serif;
   width: 100%;
 }
-
-.container-all {
-  display: grid;
-  grid-template-columns: auto 1fr;
-}

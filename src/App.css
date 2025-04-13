@@ -1,0 +1,20 @@
+.container-all {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+/*------ home page styles ----- */
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  gap: 4rem;
+  padding-top: 4rem;
+}
+
+/*------ event list page styles ----- */
+
+/*------ calendar page styles ----- */
+
+/*------ trash page styles ----- */
+
+/*------ favorite page styles ----- */

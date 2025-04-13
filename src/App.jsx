@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navigation from "./components/Navigation/Navigation";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 // Conponents
 import HomePage from "./components/HomePage/";
