@@ -1,0 +1,69 @@
+/* menu icon */
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  cursor: pointer;
+  max-height: max-content;
+  max-width: max-content;
+  border-radius: 0.8rem;
+  margin-left: 2.5rem;
+  position: relative;
+  z-index: 999;
+}
+
+.menu:active {
+  background-color: var(--bg-color-item);
+}
+
+.menu .menuIcon {
+  font-size: 2.5rem;
+  color: var(--item-color);
+}
+.menu .menuIcon:hover {
+  color: var(--item-color-active);
+}
+
+.menuList {
+  /* display: none; */
+  position: absolute;
+  top: 4.5rem;
+  right: -1rem;
+  list-style: none;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 0 1rem -0.5rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.menuList.menuList--open {
+  display: flex;
+}
+
+.menuItem {
+  font-size: var(--font-size-text-small);
+  display: flex;
+  gap: 0.5rem;
+  color: var(--item-color);
+}
+
+.menuItem:hover {
+  color: var(--item-color);
+}
+
+.menuItem .menuItem__icon {
+  color: var(--item-color);
+  font-size: var(--font-size-text-small);
+  transition: all 0.5s;
+}
+
+.menuItem:hover .menuItem__icon {
+  color: var(--main-color);
+}
