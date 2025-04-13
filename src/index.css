@@ -1,0 +1,91 @@
+/* css font */
+@import url("https://fonts.googleapis.com/css2?family=Belleza&family=Marck+Script&family=Righteous&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  border: none;
+  outline: none;
+}
+
+:root {
+  /* ******* Font size ********/
+  --font-size-logo: clamp(3.2rem, 3.5vw, 2.4rem);
+  --font-size-nav-link: clamp(1.8rem, 2.5vw, 1.6rem);
+  --font-size-text: clamp(1.8rem, 2.5vw, 1.6rem);
+  --font-size-heading: clamp(2rem, 2.5vw, 1.8rem);
+  --font-size-text-small: clamp(1.4rem, 2.5vw, 1rem);
+
+  /* state color  */
+  --status-bg-pending: #fff7de;
+  --status-bg-completed: #f0fff1;
+  --status-bg-canceled: #ffefee;
+
+  --status-text-pending: #db9900;
+  --status-text-completed: #4caf50;
+  --status-text-canceled: #f44336;
+
+  /* ***** main color ***** */
+  --main-color-50: #f6f5ff;
+  --main-color-100: #ebe9fd;
+  --main-color-200: #c4bdfa;
+  --main-color-300: #9d91f6;
+  --main-color-400: #7565f3;
+  --main-color: #4f39ef;
+  --main-color-600: #2811d5;
+  --main-color-700: #1d0c98;
+  --main-color-800: #11075b;
+  --main-color-900: #06021e;
+
+  --main-bg-color-item: #f0f0ff;
+
+  /* ***** gray color ***** */
+  --color-gray-100: #efeff1;
+  --color-gray-200: #cfd0d5;
+  --color-gray-300: #afb0b8;
+  --color-gray-400: #90909c;
+  --color-gray-500: #70717f;
+  --color-gray-600: #585863;
+  --color-gray-700: #3f3f47;
+  --color-gray-800: #26262a;
+  --color-gray-900: #0d0d0e;
+
+  --color-gray-text-active: #3f3f4a;
+
+  /* neutral color  */
+  --color-white: #fff;
+  --color-white-secondary: #e9e9f1;
+
+  --color-black: #000000;
+  --color-black-secondary: #101010;
+}
+
+.light-mode {
+  --bg-color-main: var(--color-white);
+  --bg-color-item: var(--main-color-50);
+  --bg-color-item-selected: var(--main-color-100);
+  --text-color: var(--color-gray-500);
+  --text-color-secundary: var(--color-gray-500);
+  --title-color: var(--color-gray-800);
+  --item-color: var(--color-gray-600);
+  --item-color-active: var(--color-gray-700);
+  --item-color-desabled: var(--color-gray-200);
+  --text-color-neutral: var(--color-gray-100);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--bg-color-main);
+  font-family: "Rightous", sans-serif;
+  width: 100%;
+}
+
+.container-all {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}

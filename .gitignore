@@ -22,4 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-src/
+src/assets/
+src/components/
+src/context/
+src/utils/
