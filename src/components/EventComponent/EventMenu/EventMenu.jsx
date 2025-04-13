@@ -8,14 +8,14 @@ import {
   MoreVertSharp,
 } from "@mui/icons-material";
 import clsx from "clsx";
-import { useEventMenuContext } from "../../context/EventMenuContext";
+import { useEventContext } from "../../../context/EventContext";
 
-export default function EventMenu() {
-  const { handleEventClick, openMenuList } = useEventMenuContext();
+export default function EventMenu({ id, eventId }) {
+  const { eventClick, isEventClicked } = useEventContext();
   return (
     <>
       {/* menu  */}
-      <div className={EventMenuStyles.menu} onClick={handleEventClick}>
+      <div className={EventMenuStyles.menu} onClick={eventClick}>
         <MoreVertSharp
           className={EventMenuStyles.menuIcon}
           aria-label="Open menu"
@@ -23,7 +23,9 @@ export default function EventMenu() {
         <ul
           className={clsx(
             EventMenuStyles.menuList,
-            openMenuList ? EventMenuStyles["menuList--open"] : ""
+            isEventClicked && id == eventId
+              ? EventMenuStyles["menuList--open"]
+              : ""
           )}
           role="menu"
         >

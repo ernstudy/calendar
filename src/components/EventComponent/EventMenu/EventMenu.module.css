@@ -13,7 +13,6 @@
   border-radius: 0.8rem;
   margin-left: 2.5rem;
   position: relative;
-  z-index: 999;
 }
 
 .menu:active {
@@ -29,18 +28,19 @@
 }
 
 .menuList {
-  /* display: none; */
   position: absolute;
   top: 4.5rem;
   right: -1rem;
   list-style: none;
-  background-color: var(--main-bg-color);
+  background-color: var(--bg-color-main);
   box-shadow: 0 0 1rem -0.5rem;
   padding: 1rem;
   border-radius: 0.8rem;
   display: none;
   flex-direction: column;
   gap: 1.2rem;
+  overflow: hidden;
+  z-index: 9999;
 }
 
 .menuList.menuList--open {
