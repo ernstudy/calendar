@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 src/assets/
-src/components/
+src/components/Navigation
+src/components/HomePage/RecentEvents/
+src/components/HomePage/HomePage.module.css
 src/utils/EventMenu
