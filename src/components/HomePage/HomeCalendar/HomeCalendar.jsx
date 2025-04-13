@@ -4,13 +4,27 @@ import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 import clsx from "clsx";
 
 export default function HomeCalendar() {
+  const [nav, setNav] = useState(0);
   // days of the week
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const date = new Date();
+
+  if (nav != 0) {
+    date.setMonth(new Date().getMonth() + nav);
+  }
+
   const month = date.getMonth();
-  const day = date.getDate();
+  console.log("month", month);
+  const currentDay = date.getDate();
   const year = date.getFullYear();
+
+  const headingMonth = new Date(year, month, currentDay).toLocaleString(
+    "en-EN",
+    {
+      month: "long",
+    }
+  );
 
   const numDaysMonth = new Date(year, month + 1, 0).getDate();
   const dayString = new Date(year, month, 1).toDateString().split(" ")[0];
@@ -41,7 +55,7 @@ export default function HomeCalendar() {
   const generateDays = calculateDays();
   useEffect(() => {
     setDayMonthList(generateDays);
-  }, [day, month, year]);
+  }, [currentDay, month, year]);
 
   // console.log("day list", dayList);
 
@@ -49,13 +63,21 @@ export default function HomeCalendar() {
     <div className={HomeCalendarStyle.month}>
       <div className={HomeCalendarStyle.heading}>
         <div className={HomeCalendarStyle.date}>
-          <h2>May, 2025</h2>
+          <h2>
+            {headingMonth}, {year}
+          </h2>
         </div>
         <div className={HomeCalendarStyle.navigate}>
-          <div className={HomeCalendarStyle.navigateButton}>
+          <div
+            className={HomeCalendarStyle.navigateButton}
+            onClick={() => setNav(nav - 1)}
+          >
             <NavigateBefore className={HomeCalendarStyle.icon} />
           </div>
-          <div className={HomeCalendarStyle.navigateButton}>
+          <div
+            className={HomeCalendarStyle.navigateButton}
+            onClick={() => setNav(nav + 1)}
+          >
             <NavigateNext className={HomeCalendarStyle.icon} />
           </div>
         </div>
@@ -74,6 +96,9 @@ export default function HomeCalendar() {
           <div key={index} className={HomeCalendarStyle.dayBox}>
             <span
               className={clsx(
+                currentDay == day.day &&
+                  nav == 0 &&
+                  HomeCalendarStyle["day--current"],
                 day.type == "day"
                   ? HomeCalendarStyle.day
                   : HomeCalendarStyle.paddingDay

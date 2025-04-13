@@ -70,6 +70,10 @@
   cursor: pointer;
 }
 
-.currentDay {
+.day--current {
   background-color: var(--main-color);
+  border-radius: 0.8rem;
+  color: var(--text-color-neutral);
+  padding: 0.3rem;
+  text-align: center;
 }
