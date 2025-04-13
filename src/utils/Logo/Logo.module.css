@@ -1,0 +1,10 @@
+/* =========== LOGO ==========  */
+
+.logo {
+  width: max-content;
+}
+
+h1 {
+  font-size: var(--font-size-logo);
+  color: var(--main-color);
+}

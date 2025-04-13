@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 src/assets/
 src/components/
-src/context/CalendarContext
-src/utils/
+src/utils/EventMenu
