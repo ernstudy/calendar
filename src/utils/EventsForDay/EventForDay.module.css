@@ -1,0 +1,9 @@
+.EventForDay {
+  background-color: var(--main-color);
+  width: 90%;
+  color: var(--text-color-neutral);
+  font-size: 10px;
+  margin-top: 3px;
+  border-radius: 0.4rem;
+  padding: 1px 0;
+}
