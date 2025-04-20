@@ -1,5 +1,7 @@
 .container {
   height: auto;
+  max-width: 45rem;
+  width: 100%;
 }
 
 .addEvent {
@@ -50,4 +52,16 @@
 .list {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 60rem) {
+  .addEvent {
+    display: none;
+  }
+
+  .container {
+    min-width: auto;
+    max-width: 100%;
+    width: 100%;
+  }
 }

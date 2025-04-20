@@ -42,7 +42,6 @@ export default function Event({ event, isEventId }) {
         <div className={EventStyle.items}>
           <div className={clsx(EventStyle[`${eventStatus}`])}>
             {event.status}
-            {/* {console.log("event status here", eventStatus)} */}
           </div>
           <EventMenu eventId={event.id} isEventId={isEventId} event={event} />
         </div>

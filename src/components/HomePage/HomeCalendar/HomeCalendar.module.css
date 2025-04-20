@@ -1,7 +1,13 @@
+.month {
+  width: 100%;
+  min-width: 40rem;
+}
+
 .heading {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding: 0 2rem;
   margin-bottom: 1.5rem;
 }
@@ -30,10 +36,6 @@
   color: var(--main-color);
 }
 
-.month {
-  width: 100%;
-}
-
 .weekdays {
   display: flex;
   width: 100%;
@@ -52,11 +54,11 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  row-gap: clamp(6rem, 4.5vw, 14rem);
 }
 
 .dayMonthBox {
   width: calc(100% / 7);
-  margin-bottom: 7rem;
   text-align: center;
   font-size: var(--font-size-text);
   cursor: pointer;
@@ -64,6 +66,8 @@
   align-items: center;
   justify-content: initial;
   flex-direction: column;
+  /* height: clamp(10rem, 4.5vw, 14rem); */
+  /* height: 7rem; */
 }
 
 .paddingDayMonth {
@@ -85,11 +89,16 @@
 
 .eventsPerDay {
   background-color: var(--main-color-400);
-  /* display: block; */
   color: var(--text-color-neutral);
   font-size: 1.2rem;
   border-radius: 0.2rem;
   margin-top: 0.3rem;
   text-align: center;
   width: 50%;
+}
+
+@media (max-width: 60rem) {
+  .month {
+    min-width: auto;
+  }
 }

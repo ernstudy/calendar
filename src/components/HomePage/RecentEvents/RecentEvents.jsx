@@ -12,6 +12,7 @@ export default function RecentEvents() {
     getEventDate,
     setEventForDayId,
   } = useEventContext();
+
   const [isEventId, setIsEventId] = useState(null);
 
   const recentsEvents = events.slice(0, 7);

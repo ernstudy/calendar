@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Navigation from "./components/Navigation/Navigation";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { EventProvider } from "./context/EventContext";
-import "./App.css";
 
 // Conponents
 import HomePage from "./components/HomePage/";
@@ -10,6 +9,7 @@ import EventListPage from "./components/CalendarPage/";
 import CalendarPage from "./components/EventListPage/";
 import FavoritePage from "./components/FavoritePage/";
 import TrashtPage from "./components/TrashPage/";
+import { Box } from "@mui/material";
 
 export default function App() {
   useEffect(() => {
@@ -20,7 +20,9 @@ export default function App() {
       <div>
         <Router>
           <div className="container-all">
-            <Navigation />
+            <div className="navegation-container">
+              <Navigation />
+            </div>
 
             <Routes>
               <Route path="/" element={<HomePage />} />

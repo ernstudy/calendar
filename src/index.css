@@ -12,11 +12,14 @@
 
 :root {
   /* ******* Font size ********/
-  --font-size-logo: clamp(3.2rem, 3.5vw, 2.4rem);
-  --font-size-nav-link: clamp(1.8rem, 2.5vw, 1.6rem);
-  --font-size-text: clamp(1.8rem, 2.5vw, 1.6rem);
-  --font-size-heading: clamp(2rem, 2.5vw, 1.8rem);
-  --font-size-text-small: clamp(1.4rem, 2.5vw, 1rem);
+  --font-size-logo: clamp(2.4rem, 3.5vw, 3.2rem);
+  --font-size-title: clamp(2.2rem, 3.5vw, 3rem);
+  --font-size-nav-link: clamp(1.6rem, 2.5vw, 1.8rem);
+  --font-size-text: clamp(1.6rem, 2.5vw, 1.8rem);
+  --font-size-icon: clamp(2rem, 3.5vw, 2.4rem);
+  --font-size-item: clamp(1.8rem, 2.5vw, 2.2rem);
+  --font-size-heading: clamp(1.8rem, 2.5vw, 2rem);
+  --font-size-text-small: clamp(1rem, 2.5vw, 1.4rem);
 
   /* state color  */
   --status-bg-pending: #fff7de;
@@ -68,7 +71,7 @@
   --bg-color-item-selected: var(--main-color-100);
   --text-color: var(--color-gray-500);
   --text-color-secundary: var(--color-gray-500);
-  --title-color: var(--color-gray-800);
+  --title-color: var(--color-gray-700);
   --item-color: var(--color-gray-600);
   --item-color-active: var(--color-gray-700);
   --item-color-desabled: var(--color-gray-200);
@@ -83,4 +86,53 @@ body {
   background-color: var(--bg-color-main);
   font-family: "Rightous", sans-serif;
   width: 100%;
+}
+
+.container-all {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.navegation-container {
+  display: block;
+}
+/*------ home page styles ----- */
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 4rem;
+  padding-top: 4rem;
+  min-height: 102vh;
+}
+
+@media (max-width: 60rem) {
+  .home-container {
+    grid-template-columns: 1fr;
+    justify-content: baseline;
+    align-items: baseline;
+  }
+}
+
+/*------ event list page styles ----- */
+
+/*------ calendar page styles ----- */
+
+/*------ trash page styles ----- */
+
+/*------ favorite page styles ----- */
+
+@media (max-width: 60rem) {
+  .container-all {
+    grid-template-columns: 1fr;
+  }
+
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .navegation-container {
+    display: none;
+  }
 }

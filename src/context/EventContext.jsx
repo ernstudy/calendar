@@ -84,10 +84,25 @@ const EventProvider = ({ children }) => {
     );
     setEvents(modifiedArray);
     localStorage.setItem("events", JSON.stringify(modifiedArray));
-    console.log("edited event", modifiedArray);
-  };
 
-  console.log("event array edited", events);
+    // favorite
+    const modifiedFavoriteArray = favoriteEvents.map((favorite) =>
+      favorite.id == eventToEditId
+        ? {
+            ...favorite,
+            memo: input.memo,
+            date: input.date,
+            time: input.time,
+            dateId: eventDateId,
+          }
+        : favorite
+    );
+    setFavoriteEvents([...modifiedFavoriteArray]);
+    localStorage.setItem(
+      "favorite",
+      JSON.stringify([...modifiedFavoriteArray])
+    );
+  };
 
   useEffect(() => {
     setEventToEdit((prev) => prev);
@@ -101,6 +116,17 @@ const EventProvider = ({ children }) => {
 
     setEvents(modifiedStatusArray);
     localStorage.setItem("events", JSON.stringify(modifiedStatusArray));
+    //
+    const modifiedFavoriteStatusArray = favoriteEvents.map((favorite) =>
+      favorite.id == eventId ? { ...favorite, status: eventStatus } : favorite
+    );
+
+    setFavoriteEvents([...modifiedFavoriteStatusArray]);
+    localStorage.setItem(
+      "favorite",
+      JSON.stringify([...modifiedFavoriteStatusArray])
+    );
+    //
   };
 
   //--- UPDATE EVENT LIST ----
@@ -130,34 +156,28 @@ const EventProvider = ({ children }) => {
     }
   };
 
-  console.log("event array with out event", events);
-
   // ***** MOVE EVENT TO TRASH ******
-  const [trash, setTrash] = useState(
+  const [trashEvents, settrashEvents] = useState(
     () => JSON.parse(localStorage.getItem("trash")) || []
   );
 
   const moveToTrash = (event) => {
-    setTrash((prev) => [...prev, event]);
-    localStorage.setItem("trash", JSON.stringify([...trash, event]));
+    settrashEvents((prev) => [...prev, event]);
+    localStorage.setItem("trash", JSON.stringify([...trashEvents, event]));
   };
-  console.log("trash array:", trash);
 
   // ***** ADD EVENT TO FAVORITE ******
-
   const addToFavorite = (newEvent) => {
     const isEvent = favoriteEvents.find((event) => event.id == newEvent.id);
 
     if (!isEvent) {
-      setFavoriteEvents((prev) => [...prev, newEvent]);
+      setFavoriteEvents((prev) => [newEvent, ...prev]);
       localStorage.setItem(
         "favorite",
-        JSON.stringify([...favoriteEvents, newEvent])
+        JSON.stringify([newEvent, ...favoriteEvents])
       );
     }
   };
-
-  console.log("favorite event", favoriteEvents);
 
   // ******* CLOSE AND OPEN MODAL********
   // open and close menu list when any event got clicked,
@@ -183,7 +203,7 @@ const EventProvider = ({ children }) => {
     setEventDate(date);
   };
 
-  // ******* GET EVENT DATE ********
+  // ******* Formate EVENT DATE ********
   const formateDate = (event) => {
     const [year, month, day] = event.date.split("-");
 
@@ -224,7 +244,10 @@ const EventProvider = ({ children }) => {
         createEvent,
         deleteEvent,
         moveToTrash,
+        trashEvents,
+        settrashEvents,
         events,
+        setEvents,
         noEventYet,
         getEventDate,
         eventDate,
@@ -234,6 +257,8 @@ const EventProvider = ({ children }) => {
         eventToEdit,
         updateEventStatus,
         addToFavorite,
+        setFavoriteEvents,
+        favoriteEvents,
         formateDate,
       }}
     >
