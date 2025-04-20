@@ -2,25 +2,11 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import EventStyle from "./Event.module.css";
 import EventMenu from "./EventMenu/EventMenu";
+import { useEventContext } from "../../context/EventContext";
 export default function Event({ event, isEventId }) {
-  // formate date
-  const [year, month, day] = event.date.split("-");
+  const { formateDate } = useEventContext();
 
-  const date = new Date(year, month - 1, day).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  // formate time
-  const [hours, minutes] = event.time.split(":");
-
-  const periodeHour = hours % 12 || 12;
-  const formatedHour = periodeHour <= 10 ? `0${periodeHour}` : periodeHour;
-
-  const periode = hours >= 12 ? "PM" : "AM";
-
-  const formatedTime = `${formatedHour}:${minutes} ${periode}`;
+  const [date, formatedTime] = formateDate(event);
 
   const setEventStatus = () => {
     const status = event.status;
