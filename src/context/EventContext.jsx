@@ -183,6 +183,30 @@ const EventProvider = ({ children }) => {
     setEventDate(date);
   };
 
+  // ******* GET EVENT DATE ********
+  const formateDate = (event) => {
+    const [year, month, day] = event.date.split("-");
+
+    const date = new Date(year, month - 1, day).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+
+    // formate time
+    const [hours, minutes] = event.time.split(":");
+
+    const periodeHour = hours % 12 || 12;
+    const formatedHour = periodeHour <= 10 ? `0${periodeHour}` : periodeHour;
+
+    const periode = hours >= 12 ? "PM" : "AM";
+
+    const formatedTime = `${formatedHour}:${minutes} ${periode}`;
+
+    let result = [date, formatedTime];
+    return result;
+  };
+
   // --- update the event date cliked ----
   useEffect(() => {
     setEventDate((prev) => prev);
@@ -210,6 +234,7 @@ const EventProvider = ({ children }) => {
         eventToEdit,
         updateEventStatus,
         addToFavorite,
+        formateDate,
       }}
     >
       {children}
