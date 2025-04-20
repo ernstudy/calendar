@@ -57,8 +57,6 @@ export default function Navigation() {
         ...prevValue,
         navUrl: currentButton.path,
       }));
-      console.log("current button path", currentButton.path);
-      console.log("currentUrl:", url.currentUrl);
     }
   };
 

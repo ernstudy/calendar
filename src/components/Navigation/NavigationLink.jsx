@@ -6,7 +6,7 @@ import { ArrowRight } from "@mui/icons-material";
 
 export default function NavigationLink({ linkProps }) {
   const { handleActiveLink, url, index, item } = linkProps;
-  console.log(linkProps.index);
+
   return (
     <>
       <Link

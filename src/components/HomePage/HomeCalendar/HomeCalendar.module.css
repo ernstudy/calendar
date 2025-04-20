@@ -54,18 +54,23 @@
   flex-wrap: wrap;
 }
 
-.dayBox {
+.dayMonthBox {
   width: calc(100% / 7);
   margin-bottom: 7rem;
   text-align: center;
   font-size: var(--font-size-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: initial;
+  flex-direction: column;
 }
 
-.paddingDay {
+.paddingDayMonth {
   color: var(--item-color-desabled);
 }
 
-.day {
+.dayMonth {
   color: var(--text-color);
   cursor: pointer;
 }
@@ -76,4 +81,15 @@
   color: var(--text-color-neutral);
   padding: 0.3rem;
   text-align: center;
+}
+
+.eventsPerDay {
+  background-color: var(--main-color-400);
+  /* display: block; */
+  color: var(--text-color-neutral);
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  margin-top: 0.3rem;
+  text-align: center;
+  width: 50%;
 }
