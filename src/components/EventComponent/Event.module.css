@@ -33,7 +33,7 @@
 }
 
 .info {
-  align-self: self-end;
+  align-self: self-start;
   height: max-content;
   display: flex;
   flex-wrap: wrap;
@@ -44,6 +44,9 @@
 .title {
   font-size: var(--font-size-text);
   color: var(--item-color);
+  flex-grow: 1;
+  width: 100%;
+  max-width: 300px;
 }
 
 .date {
@@ -60,19 +63,19 @@
   font-size: var(--font-size-text-small);
 }
 
-.status--done {
-  color: var(--status-text-done);
-  background-color: var(--status-bg-done);
+.status--completed {
+  color: var(--status-text-completed);
+  background-color: var(--status-bg-completed);
   height: max-content;
   padding: 0.8rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
 
-.status--cancel {
-  color: var(--status-text-cancel);
+.status--canceled {
+  color: var(--status-text-canceled);
 
-  background-color: var(--status-bg-cancel);
+  background-color: var(--status-bg-canceled);
   height: max-content;
   padding: 0.8rem 0.5rem;
   border-radius: 1rem;
