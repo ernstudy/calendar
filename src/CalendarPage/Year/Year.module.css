@@ -1,0 +1,77 @@
+.year {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  column-gap: clamp(3rem, 3vw, 5rem);
+}
+
+.navigation h3 {
+  color: var(--title-color);
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button .icon {
+  color: var(--item-color);
+  vertical-align: middle;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  transform: rotate(90deg);
+}
+
+.button:hover .icon {
+  color: var(--main-color);
+}
+
+.monthList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  grid-template-rows: repeat(5, auto);
+  row-gap: clamp(3rem, 3vw, 4rem);
+  column-gap: clamp(1.5rem, 3vw, 4rem);
+}
+
+.title {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: var(--item-color);
+}
+
+.weekdaysBox {
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+
+.weekday {
+  width: calc(100% / 7);
+  font-size: clamp(0.8rem, 1vw, 1.8rem);
+  color: var(--item-color);
+}
+
+.daysmonthBox {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  row-gap: clamp(0.6rem, 1vw, 3rem);
+}
+
+.daymonth {
+  width: calc(100% / 7);
+  font-size: clamp(0.8rem, 1vw, 1.8rem);
+  color: var(--text-color);
+}
+
+.title {
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}

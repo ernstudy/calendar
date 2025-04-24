@@ -1,0 +1,70 @@
+.month {
+  width: 100%;
+}
+
+.weekdays {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.weekday {
+  width: calc(100% / 7);
+  font-size: clamp(0.8rem, 3vw, 1.8rem);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* ---- month day */
+.monthdays {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: clamp(7rem, 4.5vw, 12rem);
+}
+
+.dayMonthBox {
+  width: calc(100% / 7);
+  text-align: center;
+  font-size: clamp(0.8rem, 3vw, 1.8rem);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: initial;
+  flex-direction: column;
+  height: auto;
+}
+
+.paddingDayMonth {
+  color: var(--item-color-desabled);
+}
+
+.dayMonth {
+  color: var(--item-color);
+  cursor: pointer;
+}
+
+.day--current {
+  background-color: var(--main-color);
+  border-radius: 0.8rem;
+  color: var(--text-color-neutral);
+  padding: 0.3rem;
+  text-align: center;
+}
+
+.eventsPerDay {
+  background-color: var(--main-color-400);
+  color: var(--text-color-neutral);
+  font-size: clamp(0.2rem, 3.5vw, 1.8rem);
+  /* font-size: 0.5rem; */
+  border-radius: 0.2rem;
+  margin-top: 0.3rem;
+  text-align: center;
+  width: 1rem;
+}
+
+@media (max-width: 60rem) {
+  .month {
+    min-width: auto;
+  }
+}

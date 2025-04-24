@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.navigation {
+  display: flex;
+  background-color: var(--main-color-200);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  width: max-content;
+  margin-bottom: 2rem;
+}
+
+.button {
+  text-decoration: none;
+  color: var(--text-color-neutral);
+  font-size: var(--font-size-text);
+  padding: 0.4rem 1rem;
+  border-radius: 0.8rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.button--clicked {
+  background-color: var(--main-color-400);
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.monthString {
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+}
+
+.button .icon {
+  color: var(--text-color);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
