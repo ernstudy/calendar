@@ -5,6 +5,10 @@
   height: 100vh;
   box-shadow: 0 0 10px -6px;
   padding: 2rem 1rem;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  top: 0;
 }
 .navigationList {
   margin-top: 3rem;

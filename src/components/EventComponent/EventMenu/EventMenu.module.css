@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
 .menu {
@@ -11,7 +12,6 @@
   max-height: max-content;
   max-width: max-content;
   border-radius: 0.8rem;
-  margin-left: 2.5rem;
   position: relative;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .menu .menuIcon {
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 3.5vw, 3rem);
   color: var(--item-color);
 }
 .menu .menuIcon:hover {
@@ -29,15 +29,15 @@
 
 .menuList {
   position: absolute;
-  top: 4.5rem;
-  right: -1rem;
+  top: 5.5rem;
+  right: 0;
   list-style: none;
   background-color: var(--bg-color-main);
   box-shadow: 0 0 1rem -0.5rem;
   padding: 1rem;
   border-radius: 0.8rem;
   display: none;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1.2rem;
   overflow: hidden;
   z-index: 9999;
@@ -50,6 +50,10 @@
 .menuItem {
   font-size: var(--font-size-text-small);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   gap: 0.5rem;
   color: var(--item-color);
 }
@@ -66,4 +70,15 @@
 
 .menuItem:hover .menuItem__icon {
   color: var(--main-color);
+}
+
+@media (max-width: 60rem) {
+  .menuList {
+    flex-direction: row;
+    right: 0;
+    top: -6.8rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
 }

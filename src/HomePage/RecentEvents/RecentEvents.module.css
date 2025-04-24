@@ -1,7 +1,7 @@
 .container {
   height: auto;
-  max-width: 45rem;
   width: 100%;
+  max-width: 30rem;
 }
 
 .addEvent {
@@ -42,16 +42,31 @@
 }
 
 .heading {
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
 }
 .heading h3 {
   font-size: var(--font-size-heading);
   color: var(--item-color);
 }
 
+.noEvent {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.noEvent h4 {
+  color: var(--item-color-desabled);
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+  font-weight: 500;
+  margin-top: 6rem;
+}
+
 .list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
+  /* flex-direction: column; */
+  column-gap: 2rem;
 }
 
 @media (max-width: 60rem) {
@@ -60,8 +75,13 @@
   }
 
   .container {
-    min-width: auto;
     max-width: 100%;
-    width: 100%;
+  }
+
+  .list {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+    /* flex-wrap: wrap;
+    flex-direction: row; */
   }
 }

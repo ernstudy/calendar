@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ModalStsyles from "./EventModal.module.css";
 import { Close } from "@mui/icons-material";
-import { useEventContext } from "../../context/EventContext";
 import clsx from "clsx";
+import { useEventContext } from "../../context/EventContext";
 
 export default function EventModal() {
   const {

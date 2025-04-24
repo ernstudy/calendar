@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./RecentEvents.module.css";
 import { Add } from "@mui/icons-material";
-import { useEventContext } from "../../../context/EventContext";
-import Event from "../../EventComponent/Event";
+import { useEventContext } from "../../context/EventContext";
+import Event from "../../components/EventComponent/Event";
 
 export default function RecentEvents() {
-  const {
-    events,
-    noEventYet,
-    eventModalToggle,
-    getEventDate,
-    setEventForDayId,
-  } = useEventContext();
+  const { events, eventModalToggle, setEventForDayId } = useEventContext();
 
   const [isEventId, setIsEventId] = useState(null);
 
@@ -29,6 +23,20 @@ export default function RecentEvents() {
     document.body.style.overflow = "hidden";
   };
 
+  // ***** NO EVENT YET ******
+  // if the event list is empty, display this
+  const isNoEvent = () => {
+    if (events.length == 0) {
+      return (
+        <span className={styles.noEvent}>
+          <h4>No event yet</h4>
+        </span>
+      );
+    }
+  };
+
+  const noEventYet = isNoEvent();
+
   return (
     <div className={styles.container}>
       <div className={styles.addEvent} onClick={addEvent}>
@@ -44,6 +52,7 @@ export default function RecentEvents() {
         </div>
         {/* no event yet  */}
         {noEventYet}
+
         <div className={styles.list}>
           {recentsEvents.map((event) => (
             <div key={event.id} onClick={() => eventClickedToggle(event.id)}>

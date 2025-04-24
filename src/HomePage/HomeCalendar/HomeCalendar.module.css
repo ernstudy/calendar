@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+}
+
+.heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.date h2 {
+  font-size: var(--font-size-text);
+  color: var(--item-color);
+}
+
+.navigate {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigateButton {
+  border-radius: 0.8rem;
+  padding: 0.2rem;
+  background-color: var(--bg-color-item);
+  cursor: pointer;
+}
+
+.navigateButton .icon {
+  font-size: 2.5rem;
+  color: var(--main-color);
+}

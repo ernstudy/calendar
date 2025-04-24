@@ -14,14 +14,25 @@ const EventProvider = ({ children }) => {
     () => JSON.parse(localStorage.getItem("favorite")) || []
   );
 
-  // ***** NO EVENT YET ******
-  // if the event list is empty, display this
-  const isNoEvent = () => {
-    if (events.length == 0) {
-      return <span className="noEvent">No event yet</span>;
+  // nav
+  const [nav, setNav] = useState(0);
+
+  const globalDate = () => {
+    let result = {};
+    const date = new Date();
+
+    if (nav != 0) {
+      date.setMonth(new Date().getMonth() + nav);
     }
+
+    const month = date.getMonth();
+    const currentDay = date.getDate();
+    const year = date.getFullYear();
+
+    result = { month, currentDay, year };
+
+    return result;
   };
-  const noEventYet = isNoEvent();
 
   // event for day identification
   const [eventPerDay_DateId, setEventPerDay_DateId] = useState("");
@@ -248,7 +259,6 @@ const EventProvider = ({ children }) => {
         settrashEvents,
         events,
         setEvents,
-        noEventYet,
         getEventDate,
         eventDate,
         setEventPerDay_DateId,
@@ -260,6 +270,9 @@ const EventProvider = ({ children }) => {
         setFavoriteEvents,
         favoriteEvents,
         formateDate,
+        nav,
+        setNav,
+        globalDate,
       }}
     >
       {children}

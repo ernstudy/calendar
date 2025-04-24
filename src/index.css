@@ -96,22 +96,6 @@ body {
 .navegation-container {
   display: block;
 }
-/*------ home page styles ----- */
-.home-container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 4rem;
-  padding-top: 4rem;
-  min-height: 102vh;
-}
-
-@media (max-width: 60rem) {
-  .home-container {
-    grid-template-columns: 1fr;
-    justify-content: baseline;
-    align-items: baseline;
-  }
-}
 
 /*------ event list page styles ----- */
 
