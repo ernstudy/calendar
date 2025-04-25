@@ -14,22 +14,32 @@ const EventProvider = ({ children }) => {
     () => JSON.parse(localStorage.getItem("favorite")) || []
   );
 
-  // nav
+  // *****  GLOBAL DATE  ******
+
   const [nav, setNav] = useState(0);
+  const [selectedMonth, setSelecetedMonth] = useState(new Date().getMonth());
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    globalDate();
+  }, [selectedMonth, selectedYear]);
 
   const globalDate = () => {
     let result = {};
     const date = new Date();
 
+    date.setFullYear(selectedYear);
+    date.setMonth(selectedMonth);
+
     if (nav != 0) {
-      date.setMonth(new Date().getMonth() + nav);
+      date.setMonth(date.getMonth() + nav);
     }
 
-    const month = date.getMonth();
-    const currentDay = date.getDate();
-    const year = date.getFullYear();
-
-    result = { month, currentDay, year };
+    result = {
+      month: date.getMonth(),
+      currentDay: date.getDate(),
+      year: date.getFullYear(),
+    };
 
     return result;
   };
@@ -273,6 +283,9 @@ const EventProvider = ({ children }) => {
         nav,
         setNav,
         globalDate,
+        setEventDate,
+        setSelectedYear,
+        setSelecetedMonth,
       }}
     >
       {children}
