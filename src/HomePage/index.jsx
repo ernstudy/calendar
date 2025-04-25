@@ -6,7 +6,7 @@ import HomeCalendar from "./HomeCalendar/HomeCalendar";
 export default function index() {
   return (
     <>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <div className={HomeStyle.container}>
           <HomeCalendar />
 

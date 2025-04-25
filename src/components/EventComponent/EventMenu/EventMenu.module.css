@@ -29,8 +29,8 @@
 
 .menuList {
   position: absolute;
-  top: 5.5rem;
-  right: 0;
+  top: 0rem;
+  right: 2rem;
   list-style: none;
   background-color: var(--bg-color-main);
   box-shadow: 0 0 1rem -0.5rem;
@@ -40,7 +40,7 @@
   flex-direction: row;
   gap: 1.2rem;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .menuList.menuList--open {
@@ -75,8 +75,8 @@
 @media (max-width: 60rem) {
   .menuList {
     flex-direction: row;
-    right: 0;
-    top: -6.8rem;
+    /* right: 0; */
+    top: 0rem;
     gap: 1rem;
     justify-content: center;
     align-items: center;

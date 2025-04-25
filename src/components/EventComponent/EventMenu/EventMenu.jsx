@@ -37,6 +37,7 @@ export default function EventMenu({ eventId, isEventId, event }) {
     eventModalToggle();
     const currentEvent = events.find((event) => event.id == eventId);
     setEventToEdit(currentEvent);
+    document.body.style.overflow = "hidden";
   };
 
   const handleEventStatus = (status) => {

@@ -1,25 +1,13 @@
 import React, { useEffect, useState } from "react";
 import yearStyles from "./Year.module.css";
 import { NavigateBefore, NavigateNext } from "@mui/icons-material";
+import { useEventContext } from "../../context/EventContext";
 
-export default function CalendarYearPage() {
+export default function CalendarYearPage({ onActiveComponent }) {
+  const { setSelectedYear, setSelecetedMonth } = useEventContext();
   // days of the week
   const daysOfWeek = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-  // const MonthOfYear = [
-  //   "January",
-  //   "February",
-  //   "March",
-  //   "April",
-  //   "March",
-  //   "May",
-  //   "June",
-  //   "July",
-  //   "Augost",
-  //   "September",
-  //   "Octuber",
-  //   "December",
-  // ];
   // days of month
   const [monthsOfYear, setMonthsOfYear] = useState([]);
 
@@ -41,8 +29,6 @@ export default function CalendarYearPage() {
   const calculateMonthsOfYear = () => {
     let result = [];
     for (let month = 0; month < 12; month++) {
-      console.log("valor de month", month);
-
       // number of days in the month
       const numDaysMonth = new Date(year, month + 1, 0).getDate();
 
@@ -83,7 +69,12 @@ export default function CalendarYearPage() {
     setMonthsOfYear(monthsGenerated);
   };
 
-  console.log("month list", monthsOfYear);
+  // ****** SELECT DATE *******
+  const handleSelectDate = (month) => {
+    setSelecetedMonth(month);
+    setSelectedYear(year);
+    onActiveComponent();
+  };
 
   useEffect(() => {
     generateMonthsOfYear();
@@ -115,8 +106,12 @@ export default function CalendarYearPage() {
       {/* <MonthOfYear daysOfWeek={daysOfWeek} daysOfMonth={daysOfMonth} /> */}
 
       <div className={yearStyles.monthList}>
-        {monthsOfYear.map((monthYear) => (
-          <div className={yearStyles.month} key={monthYear.name}>
+        {monthsOfYear.map((monthYear, index) => (
+          <div
+            className={yearStyles.month}
+            key={monthYear.name}
+            onClick={() => handleSelectDate(index)}
+          >
             <div className={yearStyles.title}>{monthYear.name}</div>
             <div className={yearStyles.weekdaysBox}>
               {daysOfWeek.map((weekday) => (

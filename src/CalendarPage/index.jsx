@@ -7,18 +7,29 @@ import EventModal from "../components/EventModal/EventModal";
 import clsx from "clsx";
 import Month from "./Month";
 import Year from "./Year/Year";
+import { useEventContext } from "../context/EventContext";
 
 export default function index() {
-  const [activeComponent, setActiveComponent] = useState(<Year />);
-  const navLink = [
-    { name: "Year", component: <Year /> },
-    { name: "Month", component: <Month /> },
-  ];
+  const { setNav } = useEventContext();
+  // const [activeComponent, setActiveComponent] = useState(
+  //   <Year onActiveComponent={onActiveComponent} />
+  // );
+
+  const [activeComponent, setActiveComponent] = useState("year");
   const [linkId, setLinkId] = useState("Year");
-  const handleClick = (id, component) => {
+  const activeComponentToggle = (id) => {
     setLinkId(id);
-    setActiveComponent(component);
+    setActiveComponent((prev) => (prev == "year" ? "month" : "year"));
   };
+
+  const onActiveComponent = () => {
+    activeComponentToggle();
+    setLinkId("Month");
+    setNav(0);
+  };
+
+  const navLink = ["Year", "Month"];
+
   return (
     <Container maxWidth="md">
       <div className={styles.container}>
@@ -27,17 +38,21 @@ export default function index() {
             <button
               className={clsx(
                 styles.button,
-                link.name == linkId && styles["button--clicked"]
+                link == linkId && styles["button--clicked"]
               )}
-              key={link.name}
-              onClick={() => handleClick(link.name, link.component)}
+              key={link}
+              onClick={() => activeComponentToggle(link)}
             >
-              {link.name}
+              {link}
             </button>
           ))}
         </div>
 
-        {activeComponent}
+        {activeComponent == "year" ? (
+          <Year onActiveComponent={onActiveComponent} />
+        ) : (
+          <Month />
+        )}
 
         <EventModal />
       </div>

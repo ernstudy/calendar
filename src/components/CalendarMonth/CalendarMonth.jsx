@@ -16,6 +16,8 @@ export default function CalendarMonth() {
 
   const { year, month, currentDay } = globalDate();
 
+  console.log("global date year month calendar month", year, month);
+
   // days of the week
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   // days of month
