@@ -1,0 +1,23 @@
+.list {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); */
+  columns: 25rem 3;
+  align-items: initial;
+  justify-content: flex-start;
+  column-fill: balance;
+}
+
+.tile {
+  max-height: fit-content;
+  break-inside: avoid;
+  break-after: left;
+  page-break-inside: avoid;
+}
+
+.heading {
+  margin: 1rem;
+}
+.heading h2 {
+  color: var(--title-color);
+  font-size: var(--font-size-title);
+}
