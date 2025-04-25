@@ -24,7 +24,7 @@
   color: var(--item-color);
   vertical-align: middle;
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 .button:hover .icon {
