@@ -1,10 +1,20 @@
 /* =========== LOGO ==========  */
 
 .logo {
-  width: max-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.2rem 0;
+  border-bottom: 0.1mm solid var(--text-color-neutral);
 }
 
 h1 {
   font-size: var(--font-size-logo);
   color: var(--main-color);
+}
+
+.logo .icon {
+  color: var(--main-color);
+  font-size: var(--font-size-logo);
 }
