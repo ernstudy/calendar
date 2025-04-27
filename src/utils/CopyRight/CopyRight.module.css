@@ -1,0 +1,15 @@
+.CopyRight {
+  background-color: var(--bg-color-main);
+}
+.CopyRight P {
+  color: var(--text-color);
+}
+
+.CopyRight a {
+  color: var(--item-color);
+  text-decoration: none;
+}
+
+.CopyRight a:hover {
+  text-decoration: underline;
+}
