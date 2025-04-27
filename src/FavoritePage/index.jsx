@@ -17,7 +17,9 @@ export default function index() {
   return (
     <Container maxWidth="lg">
       <div className={favoriteStyle.container}>
-        <div className={favoriteStyle.heading}>Favorite</div>
+        <div className={favoriteStyle.heading}>
+          <h2>Favorite</h2>
+        </div>
         <div className={favoriteStyle.favoriteList}>
           {favoriteEvents.map((favoriteEvent) => (
             <FavoriteEvent favoriteEvent={favoriteEvent} />

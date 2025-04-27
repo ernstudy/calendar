@@ -12,8 +12,8 @@
 
 :root {
   /* ******* Font size ********/
-  --font-size-logo: clamp(2.4rem, 3.5vw, 3.2rem);
-  --font-size-title: clamp(2.2rem, 3.5vw, 3rem);
+  --font-size-logo: clamp(2.8rem, 3.5vw, 3.2rem);
+  --font-size-title: clamp(2rem, 3.5vw, 2.4rem);
   --font-size-nav-link: clamp(1.6rem, 2.5vw, 1.8rem);
   --font-size-text: clamp(1.6rem, 2.5vw, 1.8rem);
   --font-size-icon: clamp(2rem, 3.5vw, 2.4rem);
@@ -22,16 +22,13 @@
   --font-size-text-small: clamp(1rem, 2.5vw, 1.4rem);
 
   /* state color  */
-  --status-bg-pending: #fff7de;
-  --status-bg-completed: #f0fff1;
-  --status-bg-canceled: #ffefee;
 
   --status-text-pending: #db9900;
   --status-text-completed: #4caf50;
   --status-text-canceled: #f44336;
 
   /* ***** main color ***** */
-  --main-color-50: #f6f5ff;
+
   --main-color-100: #ebe9fd;
   --main-color-200: #c4bdfa;
   --main-color-300: #9d91f6;
@@ -66,8 +63,14 @@
 }
 
 .light-mode {
-  --bg-color-main: var(--color-white);
-  --bg-color-item: var(--main-color-50);
+  /* State bg color */
+  --status-bg-pending: #fff7de;
+  --status-bg-completed: #f0fff1;
+  --status-bg-canceled: #ffefee;
+  /*  */
+  --bg-color-main: #fff;
+  --bg-color-modal: #fff;
+  --bg-color-item: #f6f5ff;
   --bg-color-item-selected: var(--main-color-100);
   --text-color: var(--color-gray-500);
   --text-color-secundary: var(--color-gray-500);
@@ -76,6 +79,24 @@
   --item-color-active: var(--color-gray-700);
   --item-color-desabled: var(--color-gray-200);
   --text-color-neutral: var(--color-gray-100);
+}
+.dark-mode {
+  /* State bg color */
+  --status-bg-pending: #0e0d0a;
+  --status-bg-completed: #0b0e0b;
+  --status-bg-canceled: #0d0b0b;
+  /*  */
+  --bg-color-main: #080808;
+  --bg-color-modal: #080809;
+  --bg-color-item: #111111;
+  --bg-color-item-selected: #141414;
+  --text-color: var(--color-gray-500);
+  --text-color-secundary: var(--color-gray-500);
+  --title-color: var(--color-gray-300);
+  --item-color: var(--color-gray-400);
+  --item-color-active: var(--color-gray-300);
+  --item-color-desabled: var(--color-gray-800);
+  --text-color-neutral: var(--color-gray-900);
 }
 
 html {
@@ -95,6 +116,10 @@ body {
 
 .navegation-container {
   display: block;
+}
+
+.bottom-navigation {
+  display: none;
 }
 
 /*------ event list page styles ----- */
@@ -118,5 +143,9 @@ body {
 
   .navegation-container {
     display: none;
+  }
+
+  .bottom-navigation {
+    display: block;
   }
 }

@@ -2,8 +2,15 @@
 .container {
   display: flex;
   padding-top: 4rem;
+  padding-bottom: 6rem;
   min-height: 102vh;
   column-gap: 4rem;
+}
+
+.logoBox {
+  margin: 1rem 0 1rem;
+  display: none;
+  width: 100%;
 }
 
 @media (max-width: 60rem) {
@@ -13,12 +20,20 @@
     align-items: baseline;
     flex-direction: column;
   }
+
+  .container {
+    padding-top: 0;
+  }
+
+  .logoBox {
+    display: block;
+  }
 }
 
-/* @media (max-width: 60rem) {
+@media (max-width: 60rem) {
   .home-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
-} */
+}

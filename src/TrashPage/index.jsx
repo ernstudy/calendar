@@ -19,7 +19,9 @@ export default function index() {
   return (
     <Container maxWidth="lg">
       <div className={trashStyle.container}>
-        <div className={trashStyle.heading}>Trash</div>
+        <div className={trashStyle.heading}>
+          <h2>Trash</h2>
+        </div>
         <div className={trashStyle.trashList}>
           {trashEvents.map((trashEvent) => (
             <TrashEvent trashEvent={trashEvent} />

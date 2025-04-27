@@ -18,7 +18,7 @@
 }
 
 .box {
-  background-color: var(--bg-color-main);
+  background-color: var(--bg-color-modal);
   padding: 1.2rem;
   border-radius: 0.8rem;
   display: flex;
@@ -104,12 +104,12 @@
 
 @media (max-width: 47.5rem) {
   .modal {
-    background-color: var(--bg-color-main);
+    /* background-color: var(--bg-color-main); */
     align-items: baseline;
-    padding-top: 2rem;
+    padding-top: 20%;
   }
 
   .box {
-    gap: 3.5rem;
+    gap: 3rem;
   }
 }

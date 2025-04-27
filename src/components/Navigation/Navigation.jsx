@@ -6,13 +6,19 @@ import NavigationStyle from "./Navigation.module.css";
 import {
   ArrowRight,
   CalendarMonth,
+  DarkModeOutlined,
   DeleteOutline,
   FavoriteBorder,
   FormatListBulleted,
   Home,
+  LightModeOutlined,
 } from "@mui/icons-material";
+import Logo from "../../utils/Logo/Logo";
+import FooterComponent from "../Footer/FooterComponent";
+import { useThemeContext } from "../../context/Theme";
 
 export default function Navigation() {
+  const { themeToggle, theme } = useThemeContext();
   const [url, setUrl] = useState({
     navUrl: "",
     currentUrl: window.location.pathname,
@@ -64,12 +70,19 @@ export default function Navigation() {
     setUrl((prevValue) => ({ ...prevValue, navUrl: url }));
   };
 
+  const onThemeToggle = () => {
+    themeToggle();
+  };
+
   useEffect(() => {
     activeLink();
   }, [url.currentUrl]);
 
   return (
     <div className={NavigationStyle.navigationBar}>
+      {/* Logo component */}
+      <Logo />
+
       <div className={NavigationStyle.navigationList}>
         {navLinkItems.map((item, index) => (
           <NavigationLink
@@ -84,6 +97,20 @@ export default function Navigation() {
           />
         ))}
       </div>
+
+      <div className={NavigationStyle.theme} onClick={onThemeToggle}>
+        {theme == "light" ? (
+          <DarkModeOutlined className={NavigationStyle.themeIcon} />
+        ) : (
+          <LightModeOutlined className={NavigationStyle.themeIcon} />
+        )}
+        <span className={NavigationStyle.themeText}>
+          {theme == "light" ? "Dark Mode" : "Light Mode"}
+        </span>
+      </div>
+
+      {/* footer component */}
+      <FooterComponent />
     </div>
   );
 }

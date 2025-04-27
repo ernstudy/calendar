@@ -1,6 +1,26 @@
 .container {
   width: 100%;
-  margin-top: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.title h2 {
+  color: var(--title-color);
+  font-size: var(--font-size-title);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .navigation {
@@ -9,7 +29,6 @@
   border-radius: 0.8rem;
   overflow: hidden;
   width: max-content;
-  margin-bottom: 2rem;
 }
 
 .button {
@@ -27,20 +46,8 @@
   background-color: var(--main-color-400);
 }
 
-.heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 30rem;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-}
-
-.monthString {
-  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
-}
-
-.button .icon {
-  color: var(--text-color);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+@media (max-width: 60rem) {
+  .container {
+    padding-bottom: 7rem;
+  }
 }

@@ -1,11 +1,15 @@
 .container {
-  margin-top: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
 }
 
 .heading {
+  margin-bottom: 1rem;
+}
+
+.heading h2 {
   font-size: var(--font-size-title);
   color: var(--title-color);
-  margin-bottom: 1rem;
   font-weight: 600;
 }
 
@@ -18,23 +22,26 @@
 
 .favorite {
   display: flex;
+
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  padding-left: 1.2rem;
+  padding: 1rem;
+  padding-left: 1.5rem;
   max-height: fit-content;
   break-inside: avoid;
   break-after: left;
   page-break-inside: avoid;
+  box-shadow: 0.1rem 0.1rem 0.7rem -0.6rem;
 }
 
 .favorite::after {
   content: "";
   background-color: var(--main-color);
-  top: 0.6rem;
+  top: 1.4rem;
   bottom: 0;
-  left: 0;
-  height: 2.5rem;
+  left: 0.4rem;
+  height: 2rem;
   width: 0.5rem;
   position: absolute;
   border-radius: 0.8rem;
@@ -42,11 +49,12 @@
 
 .info {
   display: flex;
+  flex-direction: column;
   gap: 0.8rem;
   max-width: 60rem;
   width: 100%;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -86,7 +94,7 @@
   color: var(--status-text-pending);
   background-color: var(--status-bg-pending);
   height: max-content;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
@@ -95,7 +103,7 @@
   color: var(--status-text-completed);
   background-color: var(--status-bg-completed);
   height: max-content;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
@@ -105,7 +113,7 @@
 
   background-color: var(--status-bg-canceled);
   height: max-content;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
@@ -116,6 +124,12 @@
   text-align: center;
   margin-top: 5rem;
   margin-left: 3rem;
+}
+
+@media (max-width: 60rem) {
+  .container {
+    padding-bottom: 6rem;
+  }
 }
 
 @media (max-width: 40rem) {

@@ -14,24 +14,35 @@ export default function index() {
   const handleEvent = (id) => {
     setIsEventId((prev) => (prev == null ? id : null));
   };
+
+  const noEvent = () => {
+    if (events.length == 0) {
+      return <h3>No event yet</h3>;
+    }
+  };
+
+  const noEventYet = noEvent();
   return (
     <Container maxWidth="lg">
-      <div className={styles.heading}>
-        <h2>Event list</h2>
-      </div>
-      <div className={styles.list}>
-        {events.map((event) => (
-          <div
-            onClick={() => handleEvent(event.id)}
-            key={event.id}
-            className={styles.tile}
-          >
-            <Event event={event} isEventId={isEventId} />
-          </div>
-        ))}
-      </div>
+      <div className={styles.container}>
+        <div className={styles.heading}>
+          <h2>Event list</h2>
+        </div>
+        <div className={styles.list}>
+          <div className={styles.noEvent}> {noEventYet}</div>
+          {events.map((event) => (
+            <div
+              onClick={() => handleEvent(event.id)}
+              key={event.id}
+              className={styles.box}
+            >
+              <Event event={event} isEventId={isEventId} />
+            </div>
+          ))}
+        </div>
 
-      <EventModal />
+        <EventModal />
+      </div>
     </Container>
   );
 }

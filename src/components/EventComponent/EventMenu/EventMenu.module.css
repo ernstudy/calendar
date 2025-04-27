@@ -48,7 +48,7 @@
 }
 
 .menuItem {
-  font-size: var(--font-size-text-small);
+  font-size: clamp(1.2rem 2.5vw, 1.6rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,7 +75,6 @@
 @media (max-width: 60rem) {
   .menuList {
     flex-direction: row;
-    /* right: 0; */
     top: 0rem;
     gap: 1rem;
     justify-content: center;

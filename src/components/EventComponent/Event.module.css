@@ -16,17 +16,18 @@
 .event::before {
   content: "";
   position: absolute;
-  height: 30%;
+  height: 1.5rem;
   width: 0.6rem;
   left: 0.8rem;
-  top: 30%;
+  top: 2.4rem;
   transform: translatey(-50%);
   border-radius: 0.8rem;
   overflow: hidden;
   transition: all 0.5s;
+  background-color: var(--main-color);
 }
 
-.event.border-color--pending::before {
+/* .event.border-color--pending::before {
   background-color: var(--status-text-pending);
 }
 .event.border-color--canceled::before {
@@ -34,7 +35,7 @@
 }
 .event.border-color--completed::before {
   background-color: var(--status-text-completed);
-}
+} */
 
 /* .event--clicked.event::before {
   height: 100%;
@@ -69,7 +70,7 @@
   color: var(--status-text-pending);
   background-color: var(--status-bg-pending);
   height: max-content;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
@@ -78,7 +79,7 @@
   color: var(--status-text-completed);
   background-color: var(--status-bg-completed);
   height: max-content;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
@@ -88,7 +89,7 @@
 
   background-color: var(--status-bg-canceled);
   height: max-content;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border-radius: 1rem;
   font-size: var(--font-size-text-small);
 }
