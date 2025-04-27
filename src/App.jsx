@@ -11,20 +11,25 @@ import EventListPage from "./EventListPage/";
 import CalendarPage from "./CalendarPage/";
 import FavoritePage from "./FavoritePage/";
 import TrashPage from "./TrashPage/index";
+import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
+import { ThemeProvider } from "./context/Theme";
 
 export default function App() {
-  useEffect(() => {
-    document.documentElement.className = "light-mode";
-  });
   //
   return (
     <EventProvider>
       <div>
         <Router>
           <div className="container-all">
-            <div className="navegation-container">
-              <Navigation />
-            </div>
+            <ThemeProvider>
+              <div className="navegation-container">
+                <Navigation />
+              </div>
+
+              <div className="bottom-navigation">
+                <BottomNavigation />
+              </div>
+            </ThemeProvider>
 
             <Routes>
               <Route index path="/" element={<HomePage />} />
