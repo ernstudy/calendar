@@ -1,0 +1,24 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  column-gap: clamp(3rem, 3vw, 5rem);
+}
+
+.monthString {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--title-color);
+}
+
+.button .icon {
+  color: var(--text-color);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  cursor: pointer;
+}
+
+.button .icon:hover {
+  color: var(--main-color);
+}
