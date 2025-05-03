@@ -4,8 +4,13 @@ import { Add } from "@mui/icons-material";
 import { useEventContext } from "../../context/EventContext";
 import Event from "../../components/EventComponent/Event";
 
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+
 export default function RecentEvents() {
   const { events, eventModalToggle, setEventForDayId } = useEventContext();
+
+  // add animation
+  const [parent, enableAnimations] = useAutoAnimate();
 
   const [isEventId, setIsEventId] = useState(null);
 
@@ -53,7 +58,7 @@ export default function RecentEvents() {
         {/* no event yet  */}
         {noEventYet}
 
-        <div className={styles.list}>
+        <div className={styles.list} ref={parent}>
           {recentsEvents.map((event) => (
             <div key={event.id} onClick={() => eventClickedToggle(event.id)}>
               <Event event={event} isEventId={isEventId} />

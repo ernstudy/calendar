@@ -4,8 +4,11 @@ import styles from "./EventListPage.module.css";
 import Event from "../components/EventComponent/Event";
 import { useEventContext } from "../context/EventContext";
 import EventModal from "../components/EventModal/EventModal";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function index() {
+  const [parent, enableAnimations] = useAutoAnimate(/* optional config */);
+
   //
   const { events } = useEventContext();
   //
@@ -28,7 +31,7 @@ export default function index() {
         <div className={styles.heading}>
           <h2>Event list</h2>
         </div>
-        <div className={styles.list}>
+        <div ref={parent} className={styles.list}>
           <div className={styles.noEvent}> {noEventYet}</div>
           {events.map((event) => (
             <div

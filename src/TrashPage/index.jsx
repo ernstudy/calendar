@@ -4,9 +4,13 @@ import { Container } from "@mui/material";
 
 import TrashEvent from "./TrashEvent";
 import { useEventContext } from "../context/EventContext";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function index() {
   const { trashEvents } = useEventContext();
+
+  //auto animation
+  const [parent, enableAnimations] = useAutoAnimate(/* optional config */);
 
   const isEmpty = () => {
     if (trashEvents.length == 0) {
@@ -22,7 +26,7 @@ export default function index() {
         <div className={trashStyle.heading}>
           <h2>Trash</h2>
         </div>
-        <div className={trashStyle.trashList}>
+        <div ref={parent} className={trashStyle.trashList}>
           {trashEvents.map((trashEvent) => (
             <TrashEvent trashEvent={trashEvent} />
           ))}

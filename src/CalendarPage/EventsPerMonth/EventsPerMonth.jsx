@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useEventContext } from "../../context/EventContext";
 import Event from "../../components/EventComponent/Event";
 import styles from "./EventsPerMonth.module.css";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 export default function EventsPerMonth() {
   const { globalDate, events } = useEventContext();
+  const [parent, enableAnimations] = useAutoAnimate;
 
   const { year, month } = globalDate();
 
@@ -49,7 +51,7 @@ export default function EventsPerMonth() {
   const noEventOnMonth = noEvent();
 
   return (
-    <div className={styles.list}>
+    <div ref={parent} className={styles.list}>
       <div className={styles.noEvent}> {noEventOnMonth}</div>
       {eventsPerMonth.map((event) => (
         <div onClick={() => handleEvent(event.id)} className={styles.box}>
