@@ -94,6 +94,7 @@ export default function Navigation() {
               index,
               item,
             }}
+            key={index}
           />
         ))}
       </div>
